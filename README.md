@@ -3,4 +3,9 @@
 ## Development
 
     pip install -e .
+    export FLASK_APP=initialapp
     flask run
+
+## Testing
+
+    pytest     

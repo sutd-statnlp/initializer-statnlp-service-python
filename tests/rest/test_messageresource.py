@@ -1,3 +1,5 @@
+
+from flask import json
 from initialapp import app
 import pytest
 
@@ -7,6 +9,8 @@ def client():
     client = app.test_client()
     return client
 
-def test_index(client):
-    rv = client.get('/')
-    assert b"Hello World!" in rv.data
+def test_getMessages(client):
+    resp = client.get('/api/messages')
+    data = json.loads(resp.data)
+
+    assert len(data) > 0
